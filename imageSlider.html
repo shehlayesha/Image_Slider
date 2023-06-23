@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Image Slider Slider</title>
+    <style type="text/css">
+        body {
+            margin-right:0px;
+            
+            
+        }
+        h3{
+            color:black;
+            text-align: center;
+            padding: 8px 12px;
+            position: absolute;
+            top: 10px;
+            width:100%;
+            font-size:40px;
+           
+        }
+       
+       
+           
+       
+        .Slide{
+            display: none;
+            animation: zoom-in-zoom 2s ease 1;
+        }
+        a{
+            animation: zoom-in-zoom 2s ease 1;
+        }
+            .Slide img {
+                width: 98%;
+                height:93vh;
+                border:10px solid black;
+                
+            }
+        .slidercontainer {
+       
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+            animation: zoom-in-zoom 2s ease 1;
+            
+            
+            
+        }
+        .left, .right {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding:16px;
+            margin-top: -22px;
+            color: black;
+            font-weight: bold;
+            font-size: 100px;
+            transition: 0.6s ease-in-out;
+            border-radius: 0 3px 3px 0;
+        }
+        .right {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+            .left:hover, .right:hover {
+                background-color: rgba(115, 115, 115, 0.8);
+            }
+      
+         
+       
+       
+        /* Fading animation */
+        
+        @keyframes zoom-in-zoom {
+  10% {
+    transform: scale(1, 1);
+  }
+  90% {
+    transform: scale(0.7, 0.7);
+  }
+  
+  <!--50% {
+    transform: scale(1.1, 1.1);
+  } -->
+  95% {
+    transform: scale(1, 1);
+  }
+}
+
+      
+        
+    </style>
+</head>
+<body>
+    
+    
+
+     
+    <div class="slidercontainer">
+        <div class="Slide fade">
+            <img src="saudi.jpg"/>
+            <div class="content"><h3>Saudi Arabia</h3></div>
+        </div>
+       
+         <div class="Slide fade">
+            <img src="italy.jpg" />
+            <div class="content"><h3>Italy</h3></div>
+        </div>
+           <div class="Slide fade">
+            <img src="tajmahal.jpg" />
+            <div class="content"><h3 style="margin-top:5px;">India</h3></div>
+        </div>
+        
+        <div class="Slide fade">
+            <img src="australia.jpg" />
+            <div class="content"><h3>Australia</h3></div>
+        </div>
+        
+        <div class="Slide fade">
+            <img src="china.jpeg" />
+            <div class="content"><h3>China</h3></div>
+        </div>
+        
+        <!--  arrows -->
+        <a class="left" onclick="next(-1)"> 《</a>
+        <a class="right" onclick="next(1)">》</a>
+    </div>
+
+    <script type="text/javascript">
+        
+        var start= 1;
+       show(start)
+
+        function next(n) {
+            show(start+= n);
+        }
+
+        
+
+        function show(n) {
+            var i;
+            var slides = document.getElementsByClassName("Slide");
+            if (n > slides.length) 
+            { start= 1 }
+            if (n < 1) { start = slides.length}
+         for (i = 0; i < slides.length; i++) {
+               slides[i].style.display = "none";
+               }
+               slides[start- 1].style.display  = "block";
+            
+           
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+<!-- 
+
+ -->
